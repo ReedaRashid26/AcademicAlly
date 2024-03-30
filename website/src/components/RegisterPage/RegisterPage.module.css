@@ -1,0 +1,188 @@
+.root {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  align-items: flex-start;
+  background-image: conic-gradient(
+    from 90deg at 720px 512.0000303457327px,
+    #7cced9ff 0%,
+    #68b9cfff 20%,
+    #55a2c4ff 40%,
+    #448abaff 60%,
+    #3472afff 80%,
+    #2659a5ff 100%
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  overflow: hidden;
+}
+.rectangle4 {
+  position: absolute;
+  left: 553px;
+  top: 892px;
+  width: 327px;
+  height: 82px;
+  background-color: #d0ccb9;
+}
+.registerAccount {
+  color: #0a2b9f;
+  font-size: 82px;
+  font-family: Inconsolata, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 390px;
+  top: 56px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.rectangle42 {
+  position: absolute;
+  left: 296px;
+  top: 201px;
+  width: 849px;
+  height: 51px;
+  outline: solid 5px #000;
+  background-color: #d0ccb9;
+}
+.rectangle10 {
+  position: absolute;
+  left: 295px;
+  top: 289px;
+  width: 849px;
+  height: 51px;
+  outline: solid 5px #000;
+  background-color: #d0ccb9;
+}
+.rectangle11 {
+  position: absolute;
+  left: 295px;
+  top: 370px;
+  width: 849px;
+  height: 51px;
+  outline: solid 5px #000;
+  background-color: #d0ccb9;
+}
+.rectangle12 {
+  position: absolute;
+  left: 294px;
+  top: 537px;
+  width: 849px;
+  height: 51px;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.rectangle13 {
+  position: absolute;
+  left: 294px;
+  top: 622px;
+  width: 849px;
+  height: 51px;
+  outline: solid 5px #000;
+  background-color: #d0ccb9;
+}
+.rectangle14 {
+  position: absolute;
+  left: 293px;
+  top: 707px;
+  width: 849px;
+  height: 51px;
+  outline: solid 5px #000;
+  background-color: #d0ccb9;
+}
+.rectangle15 {
+  position: absolute;
+  left: 292px;
+  top: 790px;
+  width: 849px;
+  height: 51px;
+  outline: solid 5px #000;
+  background-color: #d0ccb9;
+}
+.confirmPassword {
+  color: #00000080;
+  font-size: 32px;
+  font-family: Inconsolata, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 583px;
+  top: 376px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  text-shadow: 0px 4px 4px #00000040;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.securityQuestions {
+  color: #00000080;
+  font-size: 32px;
+  font-family: Inconsolata, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 292px;
+  top: 461px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  text-shadow: 0px 4px 4px #00000040;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.password {
+  color: #00000080;
+  font-size: 32px;
+  font-family: Inconsolata, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 656px;
+  top: 294px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  text-shadow: 0px 4px 4px #00000040;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.confirm {
+  color: #000000b2;
+  font-size: 41px;
+  font-weight: bold;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 639px;
+  top: 908px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.emailUsername {
+  color: #00000080;
+  font-size: 32px;
+  font-family: Inconsolata, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 608px;
+  top: 209px;
+  width: min-content;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  text-shadow: 0px 4px 4px #00000040;
+  white-space: nowrap;
+  flex-direction: column;
+}
