@@ -1,3 +1,10 @@
+package org.example;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class UserService {
     // Registers a new user
     public boolean registerUser(String username, String password) {

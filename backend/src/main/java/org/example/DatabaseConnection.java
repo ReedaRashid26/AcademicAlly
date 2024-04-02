@@ -1,3 +1,9 @@
+package org.example;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class DatabaseConnection {
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/your_database_name";
     private static final String DATABASE_USER = "your_username";
