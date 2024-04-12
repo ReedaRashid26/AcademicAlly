@@ -64,4 +64,24 @@ public class EventControllerTest {
         List<Event> events = eventController.filterEvents( "Nonexistent Type");
         assertTrue(events.isEmpty());
     }
+
+    @Test
+    public void testSortEvents() {
+        Event event1 = new Event("Test Event 1", "This is a test event.", LocalDateTime.of(2022, 12, 30, 23, 59, 59), "CS101", "Lecture");
+        Event event2 = new Event("Test Event 2", "This is another test event.", LocalDateTime.of(2022, 12, 31, 23, 59, 59), "CS102", "Lab");
+        eventController.createEvent(event1);
+        eventController.createEvent(event2);
+        List<Event> events = eventController.sortEvents("Lecture", "2022-12-31T23:59:59");
+        assertEquals(2, events.size());
+        assertEquals(event1, events.get(0));
+        assertEquals(event2, events.get(1));
+    }
+
+    @Test
+    public void testSortEventsWithInvalidEventType() {
+        Event event = new Event("Test Event", "This is a test event.", LocalDateTime.of(2022, 12, 31, 23, 59, 59), "CS101", "Lecture");
+        eventController.createEvent(event);
+        List<Event> events = eventController.sortEvents("Nonexistent Type", "2022-12-31T23:59:59");
+        assertTrue(events.isEmpty());
+    }
 }

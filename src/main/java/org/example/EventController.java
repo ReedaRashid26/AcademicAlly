@@ -3,6 +3,7 @@ package org.example;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +36,14 @@ public class EventController {
     public List<Event> filterEvents(@RequestParam(required = false) String eventType) {
         return events.stream()
                 .filter(event -> eventType == null || event.getEventType().equalsIgnoreCase(eventType))
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/sort")
+    public List<Event> sortEvents(@RequestParam(required = false) String eventType, @RequestParam(required = false) String deadline) {
+        return events.stream()
+                .filter(event -> eventType == null || event.getEventType().equals(eventType))
+                .sorted(Comparator.comparing(Event::getDeadline))
                 .collect(Collectors.toList());
     }
 }

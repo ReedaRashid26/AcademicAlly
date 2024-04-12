@@ -1,27 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function LoginPage() {
+function RegisterPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const history = useHistory();
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/login/register`, {
                 username,
                 password
             });
-            console.log('User logged in: ', response.data);
+            history.push('/');
         } catch (error) {
-            setError('Error logging in: Invalid username or password');
+            setError('Error registering: Invalid username or password');
         }
     };
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Register</h1>
             <form onSubmit={handleFormSubmit}>
                 <label>
                     Username:
@@ -38,4 +40,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default RegisterPage;

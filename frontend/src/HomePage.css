@@ -1,31 +1,24 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .container {
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #1E1E1E;
-    color: #D4D4D4;
-    min-height: 100vh;
 }
 
-.container h1 {
-    color: #C586C0;
+h1 {
+    color: #9cdcfe;
 }
 
-.container button {
-    padding: 10px 20px;
-    background-color: #007ACC;
-    color: white;
+button {
+    padding: 10px;
     border: none;
     border-radius: 5px;
+    background-color: #007acc;
+    color: #d4d4d4;
     cursor: pointer;
 }
 
-.container button:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #00599c;
 }
 
 .filter-container {
@@ -34,56 +27,22 @@ body {
     margin-bottom: 20px;
 }
 
-.filter-container input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #252526;
-    color: #D4D4D4;
-    height: 40px;
-}
-
-.filter-container select {
-    width: 25%;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #252526;
-    color: #D4D4D4;
-    height: 40px;
-}
-
-.filter-container select option {
-    background-color: #252526;
-    color: #D4D4D4;
-}
-
 .filter-button {
-    padding: 10px 20px;
-    background-color: #007ACC;
-    color: white;
+    margin-left: 10px;
+}
+
+.calendar {
+    margin-bottom: 20px;
+}
+
+input[type="text"], select {
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    background-color: #333333;
+    color: #d4d4d4;
 }
 
-.filter-button:hover {
-    background-color: #0056b3;
-}
-
-.container .calendar {
-    margin: 20px auto;
-    width: 80%;
-}
-
-.container .calendar .react-calendar {
-    background-color: #252526;
-    border: none;
-    color: #D4D4D4;
-    width: 100%;
-}
-
-.container .calendar .react-calendar__tile--active {
-    background-color: #007ACC;
+p {
+    color: #f48771;
 }

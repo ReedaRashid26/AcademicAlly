@@ -5,8 +5,8 @@ function EventComponent({ isCreatingTask, setIsCreatingTask }) {
     const [events, setEvents] = useState([]);
     const [title, setTitle] = useState('');
     const [eventType, setEventType] = useState('');
-    const [newEventTitle, setNewEventTitle] = useState(''); // Add this line
-    const [newEventDescription, setNewEventDescription] = useState(''); // Add this line
+    const [newEventTitle, setNewEventTitle] = useState('');
+    const [newEventDescription, setNewEventDescription] = useState('');
 
     useEffect(() => {
         fetchEvents();
@@ -14,7 +14,7 @@ function EventComponent({ isCreatingTask, setIsCreatingTask }) {
 
     const fetchEvents = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/events/search', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/events/search`, {
                 params: { title }
             });
             setEvents(response.data);
@@ -25,7 +25,7 @@ function EventComponent({ isCreatingTask, setIsCreatingTask }) {
 
     const filterEvents = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/events/filter', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/events/filter`, {
                 params: { eventType }
             });
             setEvents(response.data);
@@ -38,11 +38,21 @@ function EventComponent({ isCreatingTask, setIsCreatingTask }) {
         setIsCreatingTask(true);
     };
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
-        // Here you can handle the form submission, e.g. by making a POST request to the backend.
-        console.log('Form submitted');
-        setIsCreatingTask(false);
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/events`, {
+                title: newEventTitle,
+                description: newEventDescription
+            });
+            console.log('Event created: ', response.data);
+            setIsCreatingTask(false);
+            setNewEventTitle('');
+            setNewEventDescription('');
+            fetchEvents();
+        } catch (error) {
+            console.error('Error creating event: ', error);
+        }
     };
 
     return (
@@ -71,7 +81,6 @@ function EventComponent({ isCreatingTask, setIsCreatingTask }) {
                 <div key={index}>
                     <h2>{event.title}</h2>
                     <p>{event.description}</p>
-                    {/* Render other event properties here */}
                 </div>
             ))}
         </div>
