@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -32,6 +33,9 @@ function HomePage() {
 
     return (
         <div className="container">
+            <div style={{ textAlign: 'right' }}>
+                <Link to="/login">Log out</Link>
+            </div>
             <h1>Home</h1>
             <button onClick={handleCreateTaskClick}>Create New Task</button>
             <div className="filter-container">
