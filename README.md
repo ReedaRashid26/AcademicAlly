@@ -15,3 +15,9 @@ https://nodejs.org/en/blog/release/v17.3.0
 **Step 5: run the command "npm start"**
 
 **Happy Coding!**
+
+
+
+# Troubleshooting
+
+**If your terminal is saying there is a missing script, then go to packages.json, find the scripts, and run the desired one.**
