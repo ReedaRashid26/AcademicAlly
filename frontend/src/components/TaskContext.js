@@ -1,23 +1,30 @@
-// src/contexts/TaskContext.js
-import React, { createContext, useContext, useState } from 'react';
+// TaskContext.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const TaskContext = createContext();
 
-// Custom hook for using context easily outside
 export const useTasks = () => useContext(TaskContext);
 
-// Provider component that wraps part of the app needing access to this context
 export const TaskProvider = ({ children }) => {
-    const [tasks, setTasks] = useState([]);  // State to hold tasks
+    const [tasks, setTasks] = useState(() => {
+        // Initialize tasks from local storage if available
+        const savedTasks = localStorage.getItem('tasks');
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
 
-    // Function to add a new task
-    const addTask = task => {
-        setTasks(currentTasks => [...currentTasks, task]);
+    // Effect to save tasks to local storage when they change
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks]);
+
+    const addTask = (newTask) => {
+        const updatedTasks = [...tasks, newTask];
+        setTasks(updatedTasks);
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks)); // Save to local storage
     };
 
-    // Providing tasks and addTask to any child components that consume this context
     return (
-        <TaskContext.Provider value={{ tasks, addTask }}>
+        <TaskContext.Provider value={{ tasks, setTasks, addTask }}>
             {children}
         </TaskContext.Provider>
     );

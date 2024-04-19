@@ -51,7 +51,7 @@ function App() {
       <TaskProvider>
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<Navigate replace to="/login" />} /> {/* Default redirection to /login */}
+          <Route path="/" element={<Navigate replace to="/login" />} />
           <Route path="/login" element={<AuthForm isLogin={true} />} />
           <Route path="/register" element={<AuthForm isLogin={false} />} />
           <Route path="/home" element={<HomePage />} />

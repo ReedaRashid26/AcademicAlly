@@ -1,15 +1,16 @@
 // NotesPage.js
 import React, { useState, useEffect } from 'react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  IconButton,
-  Button
+import { 
+  Table, 
+  TableBody, 
+  TableCell, 
+  TableContainer, 
+  TableHead, 
+  TableRow, 
+  Paper, 
+  IconButton, 
+  Button,
+  Link
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -55,6 +56,9 @@ export default function NotesPage() {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
+              <TableCell align="right">Class</TableCell>
+              <TableCell align="right">Type</TableCell>
+              <TableCell align="right">Materials</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -62,6 +66,13 @@ export default function NotesPage() {
             {notes.map((note) => (
               <TableRow key={note.id} hover>
                 <TableCell component="th" scope="row">{note.title}</TableCell>
+                <TableCell align="right">{note.class}</TableCell>
+                <TableCell align="right">{note.type}</TableCell>
+                <TableCell align="right">
+                  <Link href={note.materials} target="_blank" rel="noopener noreferrer">
+                    Link
+                  </Link>
+                </TableCell>
                 <TableCell align="right">
                   <IconButton aria-label="edit" onClick={() => handleOpen(note)}>
                     <EditIcon />
@@ -75,9 +86,9 @@ export default function NotesPage() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Button
-        variant="contained"
-        startIcon={<AddIcon />}
+      <Button 
+        variant="contained" 
+        startIcon={<AddIcon />} 
         onClick={() => handleOpen()}
         sx={{ margin: 2 }}
       >
