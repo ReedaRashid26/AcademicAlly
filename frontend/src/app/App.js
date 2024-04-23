@@ -1,9 +1,8 @@
-// src/app/App.js
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { TaskProvider } from '../components/TaskContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline'; // Correct import for CssBaseline
+import CssBaseline from '@mui/material/CssBaseline';
 import HomePage from '../pages/HomePage';
 import NotesPage from '../pages/NotesPage';
 import TasksPage from '../pages/TasksPage';
@@ -49,14 +48,13 @@ function App() {
     <ThemeProvider theme={tokyoNightStormTheme}>
       <CssBaseline />
       <TaskProvider>
-        <NavigationBar />
         <Routes>
-          <Route path="/" element={<Navigate replace to="/login" />} /> {/* Default redirection to /login */}
-          <Route path="/login" element={<AuthForm isLogin={true} />} />
-          <Route path="/register" element={<AuthForm isLogin={false} />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/notes" element={<NotesPage />} />
-          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/" element={<Navigate replace to="/login" />} />
+          <Route path="/login" element={<><NavigationBar showLinks={false} showLogOut={false} /><AuthForm isLogin={true} /></>} />
+          <Route path="/register" element={<><NavigationBar showLinks={false} showLogOut={false} /><AuthForm isLogin={false} /></>} />
+          <Route path="/home" element={<><NavigationBar showLinks={true} showLogOut={true} /><HomePage /></>} />
+          <Route path="/notes" element={<><NavigationBar showLinks={true} showLogOut={true} /><NotesPage /></>} />
+          <Route path="/tasks" element={<><NavigationBar showLinks={true} showLogOut={true} /><TasksPage /></>} />
         </Routes>
       </TaskProvider>
     </ThemeProvider>
