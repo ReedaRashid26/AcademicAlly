@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Button, TextField, Paper, Typography, Box } from '@mui/material';
 
+// Insert the relative path to your logo image
+import logoImage from '../images/logo.png'; // Update the import path to your logo image
+
 function AuthForm({ isLogin }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,7 +17,7 @@ function AuthForm({ isLogin }) {
     };
 
     const backgroundStyle = {
-        height: '93vh',
+        height: '100vh',
         display: 'flex',
         justifyContent: 'flex-end', // Pushes the child to the right
         alignItems: 'center', // Centers the child vertically
@@ -35,13 +38,14 @@ function AuthForm({ isLogin }) {
         color: '#a9b1d6', // Light text for the dark background
         marginRight: '140px', // Adjust the size of the margin to create the desired spacing
         width: 'calc(30% - 20px)', // Subtract the same margin from the width to maintain the form size
-        height: '90%',
+        height: '90%', // Adjust the height of the form
     };
 
     return (
         <div style={backgroundStyle}>
             <Paper elevation={6} style={formStyle}>
-                <Typography component="h1" variant="h5" style={{ color: '#a9b1d6' }}>
+                <img src={logoImage} alt="Logo" style={{ width: '100px', marginBottom: '20px' }} />
+                <Typography component="h1" variant="h5" style={{ color: '#a9b1d6', marginBottom: '20px' }}>
                     {isLogin ? 'Login' : 'Register'}
                 </Typography>
                 <form onSubmit={handleSubmit}>

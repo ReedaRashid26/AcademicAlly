@@ -49,7 +49,7 @@ export default function NotesPage() {
   };
 
   return (
-    <Paper sx={{ margin: 2 }}>
+    <Paper sx={{ marginTop: 10, marginRight: 50, marginLeft: 50 }}>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>

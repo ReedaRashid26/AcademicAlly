@@ -5,6 +5,9 @@ import CalendarComponent from '../components/CalendarComponent';
 import { useTasks } from '../components/TaskContext';
 import TaskDetailModal from '../components/TaskDetailModal';
 
+// Insert the relative path to your logo image
+import logoImage from '../images/logo.png'; // Update the import path to your logo image
+
 // Map task types to specific colors
 const taskTypeToColor = {
   Assignment: 'blue',
@@ -92,13 +95,14 @@ function HomePage() {
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={9} alignItems="flex-start" justifyContent="center" style={{ paddingTop: '10px', minHeight: '80vh' }}>
-        <Grid item xs={12} md={5} style={{ marginTop: '150px' }}>
-          <Typography variant="h4" gutterBottom>Welcome to AcademicAlly</Typography>
+      <Grid container spacing={9} alignItems="flex-start" justifyContent="center" style={{ paddingTop: '130px', paddingBottom: '150px' }}>
+        <Grid item xs={12} md={5} style={{ position: 'relative' }}>
+          <img src={logoImage} alt="AcademicAlly Logo" style={{ backgroundColor: '#1a1b26', width: '100px', position: 'absolute', top: 80, marginLeft: 150 }} />
+          <Typography variant="h4" gutterBottom style={{ marginTop: '150px' }}>Welcome to AcademicAlly</Typography>
           <Typography variant="body1" gutterBottom>
             Your one-stop solution for note-taking, task management, and planning your calendar.
           </Typography>
-          <Paper elevation={3} style={{ maxHeight: '400px', overflow: 'auto', marginTop: '90px' }}>
+          <Paper elevation={3} style={{ maxHeight: '400px', overflow: 'auto', marginTop: '50px' }}>
             <List>
               {notes.length > 0 ? notes.map(note => (
                 <ListItem key={note.id} button onClick={() => handleNoteClick(note)}>
@@ -112,10 +116,11 @@ function HomePage() {
             </List>
           </Paper>
         </Grid>
-        <Grid item xs={12} md={7} style={{ marginTop: '150px' }}>
+        <Grid item xs={12} md={7} style={{ position: 'relative' }}>
           <CalendarComponent
             events={calendarEvents}
             eventClick={handleEventClick}
+            style={{ marginTop: '100px' }}
           />
           {selectedTask && (
             <TaskDetailModal

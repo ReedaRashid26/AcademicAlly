@@ -1,27 +1,45 @@
 // src/components/TaskForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogActions, DialogTitle, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import { useTasks } from '../components/TaskContext';  // Ensure correct import
+import { useTasks } from './TaskContext';
 
-function TaskForm({ onClose }) {
+function TaskForm({ onClose, editTask }) {
     const [taskName, setTaskName] = useState('');
     const [taskType, setTaskType] = useState('');
     const [deadline, setDeadline] = useState('');
-    const { addTask } = useTasks();  // Destructure addTask correctly from the context
+    const { addTask, updateTask } = useTasks();
+
+    useEffect(() => {
+        if (editTask) {
+            setTaskName(editTask.name);
+            setTaskType(editTask.type);
+            setDeadline(editTask.deadline.split('T')[0]); // Assuming deadline is stored as ISO string
+        }
+    }, [editTask]);
 
     const handleSubmit = () => {
-        if (taskName && taskType && deadline) {
-            addTask({ name: taskName, type: taskType, deadline });
-            onClose();
-            setTaskName('');
-            setTaskType('');
-            setDeadline('');
+        const taskData = {
+            name: taskName,
+            type: taskType,
+            deadline,
+            created: editTask ? editTask.created : new Date().toISOString(),
+        };
+
+        if (editTask) {
+            updateTask({ ...taskData, id: editTask.id });
+        } else {
+            addTask({ ...taskData, id: Date.now() });
         }
+
+        onClose();
+        setTaskName('');
+        setTaskType('');
+        setDeadline('');
     };
 
     return (
         <Dialog open onClose={onClose}>
-            <DialogTitle>Add New Task</DialogTitle>
+            <DialogTitle>{editTask ? 'Edit Task' : 'Add New Task'}</DialogTitle>
             <DialogContent>
                 <TextField
                     autoFocus
@@ -59,7 +77,7 @@ function TaskForm({ onClose }) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={onClose}>Cancel</Button>
-                <Button onClick={handleSubmit}>Add Task</Button>
+                <Button onClick={handleSubmit}>{editTask ? 'Update' : 'Add'}</Button>
             </DialogActions>
         </Dialog>
     );

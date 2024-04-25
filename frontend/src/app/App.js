@@ -50,8 +50,8 @@ function App() {
       <TaskProvider>
         <Routes>
           <Route path="/" element={<Navigate replace to="/login" />} />
-          <Route path="/login" element={<><NavigationBar showLinks={false} showLogOut={false} /><AuthForm isLogin={true} /></>} />
-          <Route path="/register" element={<><NavigationBar showLinks={false} showLogOut={false} /><AuthForm isLogin={false} /></>} />
+          <Route path="/login" element={<><AuthForm isLogin={true} /></>} />
+          <Route path="/register" element={<><AuthForm isLogin={false} /></>} />
           <Route path="/home" element={<><NavigationBar showLinks={true} showLogOut={true} /><HomePage /></>} />
           <Route path="/notes" element={<><NavigationBar showLinks={true} showLogOut={true} /><NotesPage /></>} />
           <Route path="/tasks" element={<><NavigationBar showLinks={true} showLogOut={true} /><TasksPage /></>} />
